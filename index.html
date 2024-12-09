@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="input">
-        <p>Input: </p><input id="inputBox"><br>
+        <p>Input: </p><input id="inputBox" autofocus><br>
         <button class="submit" onclick="calculator()">Submit</button>
     </div>
     <br>
@@ -25,16 +25,18 @@
         function calculator()
         {
             
-            var inputValue = document.getElementById("inputBox").value;
-
-            if(isNaN(inputValue)){
+            var inputValue = document.getElementById("inputBox").value.toString();
+            console.log(inputValue);
+            if(isNaN(inputValue) || inputValue.toString() == ""){
                 window.alert("Put a valid number");
                 document.getElementById("inputBox").value = "";
+                focusInput();
                 return;
             }
             arr.push(inputValue);
             console.log(arr);   
             document.getElementById("inputBox").value = "";
+            focusInput();
 
         }
         function addition()
@@ -46,6 +48,7 @@
             }
             document.getElementById("inputBox").value = result;
             arr.splice(0);
+            focusInput();
         }
 
         function subtraction()
@@ -57,7 +60,7 @@
             }
             document.getElementById("inputBox").value = result;
             arr.splice(0);
-
+            focusInput();
         }
 
         function multiplication()
@@ -69,7 +72,7 @@
             }
             document.getElementById("inputBox").value = result;
             arr.splice(0);
-
+            focusInput();
         }
 
         function division()
@@ -81,8 +84,13 @@
             }
             document.getElementById("inputBox").value = result;
             arr.splice(0);
+            focusInput();
 
         }
+
+        function focusInput() {
+            document.getElementById("inputBox").focus();
+        } 
 
     </script>
 </body>
