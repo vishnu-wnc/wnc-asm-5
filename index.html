@@ -39,10 +39,10 @@
         }
         function addition()
         {
-            let result = arr[0];
+            let result = parseInt(arr[0]);
             for(let i = 1; i < arr.length; i++)
             {
-                result += arr[i];
+                result += parseInt(arr[i]);
             }
             document.getElementById("inputBox").value = result;
             arr.splice(0);
