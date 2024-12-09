@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="input">
+        <p>Input: </p><input id="inputBox"><br>
+        <button class="submit" onclick="calculator()">Submit</button>
+    </div>
+    <br>
+    <div>
+        <button class="operation" onclick="addition()" id="addition">+</button>
+        <button class="operation" onclick="subtraction()" id="subtraction">-</button>
+        <button class="operation" onclick="division()" id="division">/</button>
+        <button class="operation" onclick="multiplication()" id="multiplication">x</button>
+    </div>
+
+    <script>
+        const arr = [];
+
+        function calculator()
+        {
+            
+            var inputValue = document.getElementById("inputBox").value;
+
+            if(isNaN(inputValue)){
+                window.alert("Put a valid number");
+                document.getElementById("inputBox").value = "";
+                return;
+            }
+            arr.push(inputValue);
+            console.log(arr);
+            document.getElementById("inputBox").value = "";
+
+        }
+        function addition()
+        {
+            let result = arr[0];
+            for(let i = 1; i < arr.length; i++)
+            {
+                result += arr[i];
+            }
+            document.getElementById("inputBox").value = result;
+            arr.splice(0);
+        }
+
+        function subtraction()
+        {
+            let result = arr[0];
+            for(let i = 1; i < arr.length; i++)
+            {
+                result -= arr[i];
+            }
+            document.getElementById("inputBox").value = result;
+            arr.splice(0);
+
+        }
+
+        function multiplication()
+        {
+            let result = arr[0];
+            for(let i = 1; i < arr.length; i++)
+            {
+                result *= arr[i];
+            }
+            document.getElementById("inputBox").value = result;
+            arr.splice(0);
+
+        }
+
+        function division()
+        {
+            let result = arr[0];
+            for(let i = 1; i < arr.length; i++)
+            {
+                result /= arr[i];
+            }
+            document.getElementById("inputBox").value = result;
+            arr.splice(0);
+
+        }
+
+    </script>
+</body>
+</html>
