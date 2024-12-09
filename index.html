@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="input">
         <p>Input: </p><input id="inputBox" autofocus><br>
@@ -21,29 +23,32 @@
 
     <script>
         const arr = [];
-        
-        function calculator()
-        {
-            
+        /**
+         * Adding element to Array(arr)
+         */
+        function calculator() {
+
             var inputValue = document.getElementById("inputBox").value.toString();
             console.log(inputValue);
-            if(isNaN(inputValue) || inputValue.toString() == ""){
+            if (isNaN(inputValue) || inputValue.toString() == "") {
                 window.alert("Put a valid number");
                 document.getElementById("inputBox").value = "";
                 focusInput();
                 return;
             }
             arr.push(inputValue);
-            console.log(arr);   
+            console.log(arr);
             document.getElementById("inputBox").value = "";
             focusInput();
 
         }
-        function addition()
-        {
+
+        /**
+         * Handling Addition
+        */
+        function addition() {
             let result = parseInt(arr[0]);
-            for(let i = 1; i < arr.length; i++)
-            {
+            for (let i = 1; i < arr.length; i++) {
                 result += parseInt(arr[i]);
             }
             document.getElementById("inputBox").value = result;
@@ -51,11 +56,12 @@
             focusInput();
         }
 
-        function subtraction()
-        {
+        /**
+         * Handling Subtraction
+        */
+        function subtraction() {
             let result = arr[0];
-            for(let i = 1; i < arr.length; i++)
-            {
+            for (let i = 1; i < arr.length; i++) {
                 result -= arr[i];
             }
             document.getElementById("inputBox").value = result;
@@ -63,11 +69,12 @@
             focusInput();
         }
 
-        function multiplication()
-        {
+        /**
+         * Handling Multiplication
+        */
+        function multiplication() {
             let result = arr[0];
-            for(let i = 1; i < arr.length; i++)
-            {
+            for (let i = 1; i < arr.length; i++) {
                 result *= arr[i];
             }
             document.getElementById("inputBox").value = result;
@@ -75,11 +82,13 @@
             focusInput();
         }
 
-        function division()
-        {
+
+        /**
+         * Handling Division
+        */
+        function division() {
             let result = arr[0];
-            for(let i = 1; i < arr.length; i++)
-            {
+            for (let i = 1; i < arr.length; i++) {
                 result /= arr[i];
             }
             document.getElementById("inputBox").value = result;
@@ -87,11 +96,16 @@
             focusInput();
 
         }
+        
 
+        /**
+         * For making focus on input field
+        */
         function focusInput() {
             document.getElementById("inputBox").focus();
-        } 
+        }
 
     </script>
 </body>
+
 </html>
